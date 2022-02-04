@@ -7,6 +7,7 @@ keamanan jaringan merupakan aspek pertama dalam keamanan suatu jaringan komputer
 pada topologi diatas merupakan gambaran sederhana Administrator yang menerapkan mekanisme DMZ pada jaringannya. ia melakukan konfigurasi pada Linux Routernya sebagai pemeta rute, yang digunakan yaitu Linux Ubuntu 20.04 focal fossa, dengan konfigurasi.
 <br />
 <br />
+### Konfigurasi
 #> touch /etc/network/if-up.d/iptables-dmz <br />
 #> nano /etc/network/if-up.d/iptables-dmz <br />
 <br />
