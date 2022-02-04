@@ -14,6 +14,7 @@ masukkan perintah dibawah pada konfigurasi dmz. <br />
 <br />
 ####################################################################################
 <br />
+<br />
 iptables -A FORWARD -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT <br />
 iptables -A OUTPUT -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT <br />
 <br />
