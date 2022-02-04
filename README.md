@@ -12,7 +12,7 @@ pada topologi diatas merupakan gambaran sederhana Administrator yang menerapkan 
 <br />
 masukkan perintah dibawah pada konfigurasi dmz. <br />
 <br />
-####################################################################################
+############################################################################################
 <br />
 <br />
 iptables -A FORWARD -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT <br />
@@ -42,7 +42,7 @@ iptables -A INPUT -p tcp -d 111.53.2.23 -dport 3306 -j ACCEPT <br />
 iptables -A FORWARD -p tcp -d 192.168.1.5 -dport 3306 -j ACCEPT <br />
 pitables -t nat -A PREROUTING -p tcp -d 111.53.2.23 -dport 3306 -j DNAT -to 192.168.1.5:3306 <br />
 <br />
-####################################################################################
+############################################################################################
  
  
   
