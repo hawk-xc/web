@@ -13,8 +13,10 @@ pada topologi diatas merupakan gambaran sederhana Administrator yang menerapkan 
 masukkan perintah dibawah pada konfigurasi dmz. <br />
 <br />
 <br />
-`iptables -A FORWARD -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT <br />
-iptables -A OUTPUT -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT <br />`
+```bash
+iptables -A FORWARD -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A OUTPUT -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT
+```
 <br />
 <br />
 `iptables -A INPUT -p tcp -d 111.53.2.23 –dport 53 -j ACCEPT<br />
