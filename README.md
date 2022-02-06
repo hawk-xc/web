@@ -12,35 +12,40 @@ pada topologi diatas merupakan gambaran sederhana Administrator yang menerapkan 
 <br />
 masukkan perintah dibawah pada konfigurasi dmz. <br />
 <br />
-<br />
 ```bash
 iptables -A FORWARD -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m state –state NEW,ESTABLISHED,RELATED -j ACCEPT
 ```
 <br />
+```bash
+iptables -A INPUT -p tcp -d 111.53.2.23 –dport 53 -j ACCEPT
+iptables -A FORWARD -p tcp -d 192.168.1.2 –dport 53 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp -d 200.100.1.1 –dport 53 -j DNAT –to 192.168.1.2:53
+```
 <br />
-`iptables -A INPUT -p tcp -d 111.53.2.23 –dport 53 -j ACCEPT<br />
-iptables -A FORWARD -p tcp -d 192.168.1.2 –dport 53 -j ACCEPT <br />
-iptables -t nat -A PREROUTING -p tcp -d 200.100.1.1 –dport 53 -j DNAT –to 192.168.1.2:53<br />`
-<br /><br />
-`iptables -A INPUT -p udp -d 111.53.2.23 –dport 53 -j ACCEPT <br />
-iptables -A FORWARD -p udp -d 192.168.1.2 –dport 53 -j ACCEPT <br />
-iptables -t nat -A PREROUTING -p udp -d 200.100.1.1 –dport 53 -j DNAT –to 192.168.1.2:53 <br />`
+```bash
+iptables -A INPUT -p udp -d 111.53.2.23 –dport 53 -j ACCEPT
+iptables -A FORWARD -p udp -d 192.168.1.2 –dport 53 -j ACCEPT
+iptables -t nat -A PREROUTING -p udp -d 200.100.1.1 –dport 53 -j DNAT –to 192.168.1.2:53
+```
 <br />
+```bash
+iptables -A INPUT -p tcp -d 111.53.2.23 –dport 80 -j ACCEPT 
+iptables -A FORWARD -p tcp -d 192.168.1.3 –dport 80 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp -d 111.53.2.23 –dport 80 -j DNAT –to 192.168.1.3:80
+```
 <br />
-`iptables -A INPUT -p tcp -d 111.53.2.23 –dport 80 -j ACCEPT <br />
-iptables -A FORWARD -p tcp -d 192.168.1.3 –dport 80 -j ACCEPT <br />
-iptables -t nat -A PREROUTING -p tcp -d 111.53.2.23 –dport 80 -j DNAT –to 192.168.1.3:80<br />`
+```bash
+iptables -A INPUT -p tcp -d 111.53.2.23 –dport 21 -j ACCEPT
+iptables -A FORWARD -p tcp -d 192.168.1.4 –dport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp -d 111.53.2.23 –dport 21 -j DNAT –to 192.168.1.4:21
+```
 <br />
-<br />
-`iptables -A INPUT -p tcp -d 111.53.2.23 –dport 21 -j ACCEPT <br />
-iptables -A FORWARD -p tcp -d 192.168.1.4 –dport 21 -j ACCEPT <br />
-iptables -t nat -A PREROUTING -p tcp -d 111.53.2.23 –dport 21 -j DNAT –to 192.168.1.4:21 <br />`
-<br />
-<br />
-`iptables -A INPUT -p tcp -d 111.53.2.23 -dport 3306 -j ACCEPT <br />
-iptables -A FORWARD -p tcp -d 192.168.1.5 -dport 3306 -j ACCEPT <br />
-pitables -t nat -A PREROUTING -p tcp -d 111.53.2.23 -dport 3306 -j DNAT -to 192.168.1.5:3306 <br />`
+```bash
+iptables -A INPUT -p tcp -d 111.53.2.23 -dport 3306 -j ACCEPT 
+iptables -A FORWARD -p tcp -d 192.168.1.5 -dport 3306 -j ACCEPT
+pitables -t nat -A PREROUTING -p tcp -d 111.53.2.23 -dport 3306 -j DNAT -to 192.168.1.5:3306
+```
 <br />
  
   
