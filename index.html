@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My React App</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let container, root;
+
+        container = document.getElementById('root');
+        root = ReactDOM.createRoot(container);
+
+        const images = [
+            'https://img.freepik.com/premium-vector/geometric-pattern-background-design-vector-illustration_618485-2.jpg',
+            'https://img.freepik.com/premium-vector/geometric-pattern-background-design-vector-illustration_618485-8.jpg',
+            'https://img.freepik.com/premium-vector/geometric-pattern-background-design-vector-illustration_618485-9.jpg',
+            'https://img.freepik.com/premium-vector/geometric-pattern-background-design-vector-illustration_618485-10.jpg?ga=GA1.1.97448602.1720618567'
+        ];
+
+        function ImageSet(props) {
+            return (
+                <React.Fragment>
+                    <span>gambar</span>
+                    <img src={props.image ? props.image : ''} alt="gambar" width="200px" margin="10px"/>
+                </React.Fragment>
+            );
+        }
+
+        function AppPage({images}) {
+            return (
+                <>
+                    {
+                        images.map((image) => (
+                            <ImageSet image={image} />
+                        ))
+                    }
+                </>
+            );
+        }
+
+        root.render(<AppPage images={images} />);
+    </script>
+</body>
+</html>
