@@ -14,12 +14,29 @@
     <script type="text/babel">
         function Counter() {
             const [likes, setLikes] = React.useState(0);
-
-            function handleClick() {
+            
+            function TombolTambah() {
                 setLikes(likes + 1);
             }
 
-            return <span onClick={handleClick}>likes-{likes}</span>;
+            function TombolKurang() {
+                setLikes(likes - 1);
+            }
+
+            function TombolReset() {
+                setLikes(0);
+            }
+
+            // return <button onClick={TombolTambah}>klik ke-{likes}</button>;
+            return (
+                <>
+                    <button onClick={TombolKurang} disabled={likes <= 0}>-</button>
+                    {likes}
+                    <button onClick={TombolTambah} disabled={likes >= 10}>+</button>
+                    <button onClick={TombolReset} disabled={likes === 0}>reset</button>
+                    {likes === 10 ? <span>sukses</span> : ''}
+                </>
+            );
         }
 
         const container = document.getElementById('root');
