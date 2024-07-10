@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Counter() {
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick() {
+                setLikes(likes + 1);
+            }
+
+            return <span onClick={handleClick}>likes-{likes}</span>;
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+        root.render(<Counter />);
+    </script>
+</body>
+</html>
